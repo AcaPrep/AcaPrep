@@ -1,0 +1,55 @@
+<div class="ui segment piled">
+    <div class="ui header">{{test.name}} - {{test.subtitle}}</div>
+    <div class="purple attached progress ui"
+    id="bar">
+        <div class="ui bar" style="width:0%"></div>
+    </div>
+    <button class="test close" data-ng-click="close()">
+        <i class="close icon"></i>
+    </button>
+    <p>
+        <span data-ng-if="!!completed">You got {{correct}} correct out of {{completed}} answered, or {{correct/completed*100|number:2}}%</span>&nbsp;
+    </p>
+    <div data-ng-if="!scoreing">
+        <ol data-ng-if="!grading">
+            <li value="{{currentProblem.number}}">
+                <div class="question" data-ng-bind-html="currentProblem.question"></div>
+                <div class="answers ui list">
+                    <div class="item" data-ng-repeat="answer in currentProblem.answers">
+                        <button class="ui button" data-ng-click="answered(currentProblem.number,$index,answer.correct)">{{['A','B','C','D','E'][$index]}}</button>
+                        <div class="content" data-ng-bind-html="answer.text"></div>
+                    </div>
+                </div>
+            </li>
+        </ol>
+        <ol data-ng-if="grading">
+            <li value="{{currentProblem.number}}">
+                <div class="question" data-ng-bind-html="currentProblem.question"></div>
+                <button class="orange ui button right" data-ng-click="next()">Next
+                    <i class="icon right"></i>
+                </button>
+                <div class="answers ui list">
+                    <div class="item" data-ng-repeat="answer in currentProblem.answers">
+                        <div class="ui button" data-ng-click="next()" data-ng-class="statusClass($index,currentProblem.correct,currentProblem.answered)">{{['A','B','C','D','E'][$index]}}</div>
+                        <div class="content" data-ng-bind-html="answer.text"></div>
+                    </div>
+                    <div class="guide" data-ng-bind-html="currentProblem.guide"></div>
+                </div>
+            </li>
+        </ol>
+    </div>
+    <div data-ng-if="scoreing">
+        <ol class="questions ui list divided">
+            <li class="ui item" data-ng-repeat="problem in problems">
+                <div class="question" data-ng-bind-html="problem.question"></div>
+                <div class="answers ui list divided">
+                    <div class="item" data-ng-repeat="answer in problem.answers">
+                        <button class="ui button" data-ng-class="statusClass($index,$parent.problem.correct,$parent.problem.answered)">{{['A','B','C','D','E'][$index]}}</button>
+                        <div class="content" data-ng-bind-html="answer.text"></div>
+                    </div>
+                    <div class="guide" data-ng-bind-html="problem.guide"></div>
+                </div>
+            </li>
+        </ol>
+    </div>
+</div>
