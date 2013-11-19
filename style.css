@@ -1,0 +1,52 @@
+body {
+    font-family: 'Open Sans';
+}
+
+#tests > table > thead > tr > th:nth-child(1) {
+    width: 7em;
+}
+#tests > table > thead > tr > th:nth-child(2) {
+    width: 4em;
+}
+body {
+    margin:1.5em;
+}
+body > .segment {
+    position: fixed !important;
+    top:8px !important;
+    bottom:8px !important;
+    left:8px !important;
+    right:8px !important;
+    z-index:-1;
+}
+
+#footer {
+    position:fixed;
+    bottom:8px;
+    right:24px;
+}
+#bar {
+    -webkit-border-radius:0;
+    border-radius:0;
+}
+.test.close {
+    position:fixed;
+    top:24px;
+    right:24px;
+    background:transparent;
+    border:0;
+}
+
+.right.button {
+    float:right;
+}
+
+.answers .green.button {
+    background:#5BBD72 !important;
+}
+.answers .red.button {
+    background:#D95C5C !important;
+}
+.answeres .button:not(.red):not(.green) {
+    background: #EBEBEB !important;
+}

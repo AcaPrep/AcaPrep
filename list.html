@@ -1,0 +1,27 @@
+<section class="ui segment">
+    <div class="ui header">Subjects</div>
+    <div class="ui celled selection list">
+        <div class="item" data-ng-repeat="subject in subjects" data-ng-click="setSubject(subject.id,$event)">
+            <div class="content">{{subject.name}}</div>
+        </div>
+    </div>
+</section>
+<section class="ui segment">
+    <div class="ui header">Tests</div>
+    <table class="ui table">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Number</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="test in tests | filter:subjectFilter:true" data-ng-click="take(test.id)">
+                <td>{{subjectFromSet(test.set)}}</td>
+                <td>{{test.name}}</td>
+                <td>{{test.subtitle}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
