@@ -1,5 +1,5 @@
 (function(w, d) {
-    w.ImportCtrl = function($scope, $indexedDB) {
+    w.ImportCtrl = function($scope, $indexedDB,$route) {
 	var IDB = $indexedDB;
 	var addSubjects = function(doc) {
             var subjectStore = IDB.objectStore('subjects');
@@ -80,7 +80,7 @@
 		}
             }
             setStore.upsert(_).then(function() {
-		$scope.$apply();
+		$route.reload();
             });
 	};
 
