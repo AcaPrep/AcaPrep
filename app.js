@@ -1,4 +1,4 @@
-angular.module('DemiQuiz', ['ngRoute', 'xc.indexedDB'])
+angular.module('AcaPrep', ['ngRoute', 'xc.indexedDB'])
   .config(function($routeProvider,$indexedDBProvider) {
     $routeProvider
       .when('/', {controller:ListCtrl, templateUrl:'list.html'})
