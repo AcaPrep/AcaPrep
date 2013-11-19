@@ -15,3 +15,10 @@ css/fonts.css
 css/semantic.min.css
 js/jquery.js
 js/semantic.min.js
+
+fonts/OpenSans.woff
+fonts/OpenSansBold.woff
+fonts/OpenSansLight.woff
+fonts/OpenSansLightItalic.woff
+fonts/basic.icons.woff
+fonts/icons.woff
