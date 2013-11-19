@@ -1,4 +1,6 @@
 CACHE MANIFEST
+#Last commit: c7abdae
+CACHE:
 index.html
 app.js
 test.html
@@ -22,3 +24,6 @@ fonts/OpenSansLight.woff
 fonts/OpenSansLightItalic.woff
 fonts/basic.icons.woff
 fonts/icons.woff
+
+NETWORK:
+*
