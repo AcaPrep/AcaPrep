@@ -47,6 +47,7 @@ body > .segment {
 .answers .red.button {
     background:#D95C5C !important;
 }
-.answeres .button:not(.red):not(.green) {
+.answers .button:not(.red):not(.green) {
     background: #EBEBEB !important;
+    background-image: none !important;
 }
