@@ -7,7 +7,8 @@ list.html
 list.js
 import.js
 style.css
-bower_components/angular-indexedDB/src/indexeddb.js
+
+indexeddb.js
 
 https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js
 https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js
