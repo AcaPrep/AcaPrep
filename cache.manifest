@@ -11,7 +11,9 @@ import.js
 style.css
 
 js/angular.min.js
+js/angular.min.js.map
 js/angular-route.min.js
+js/angular-route.min.js.map
 indexeddb.js
 css/fonts.css
 css/semantic.min.css
