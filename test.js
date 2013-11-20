@@ -1,16 +1,17 @@
 (function(w, d) {
-    w.TestCtrl = function($scope, $location, $routeParams, $indexedDB, $sce) {
+    w.TestCtrl = function($scope, $location, $indexedDB, $sce,$routeParams) {
+	var testId=$routeParams.test;
         var testStore = $indexedDB.objectStore('tests');
-        testStore.find($routeParams.test).then(function(test) {
+        testStore.find(testId).then(function(test) {
             $scope.test = test;
         });
         var questionStore = $indexedDB.objectStore('questions');
-w.$scope = $scope;
+	w.$scope = $scope;
         $scope.problems = [];
         $scope.answers = [];
         questionStore.each({
             useIndex: "test_idx",
-            keyRange: w.IDBKeyRange.only($routeParams.test),
+            keyRange: w.IDBKeyRange.only(testId),
             direction: "next"
         }, function(cursor) {
             if (cursor) {

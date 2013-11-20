@@ -12,12 +12,13 @@ window.addEventListener('load', function(e) {
 }, false);
 
 angular.module('AcaPrep', ['ngRoute', 'xc.indexedDB'])
-  .config(function($routeProvider,$indexedDBProvider) {
+  .config(function($routeProvider,$indexedDBProvider,$locationProvider) {
     $routeProvider
-      .when('/', {controller:ListCtrl, templateUrl:'list.html'})
+      .when('/', {controller:ListCtrl, templateUrl:'/list.html'})
 //      .when('/import', {controller:AddCtrl, templateUrl:'import.html'})
-      .when('/test/:test', {controller:TestCtrl, templateUrl:'test.html'})
-      .otherwise({redirectTo:'/'});
+      .when('/test/:test', {controller:TestCtrl, templateUrl:'/test.html'})
+      .otherwise({controller:ListCtrl, templateUrl:'/list.html'});
+    $locationProvider.html5Mode(true);
     $indexedDBProvider
       .connection('DemiQuiz')
         .upgradeDatabase(0, function(event, db, tx){
@@ -27,11 +28,11 @@ angular.module('AcaPrep', ['ngRoute', 'xc.indexedDB'])
             var testQuestionsStore = db.createObjectStore('testQuestions', {keyPath: 'id'});
             var testSetStore = db.createObjectStore('testSets', {keyPath: 'id'});
             testSetStore.createIndex('subject_idx', 'subject', {unique: false});
-            var outlineStore = db.createObjectStore('outlines', {keyPath: 'id'});
+//            var outlineStore = db.createObjectStore('outlines', {keyPath: 'id'});
             var questionStore = db.createObjectStore('questions', {keyPath: 'id'});
             questionStore.createIndex('test_idx', 'test', {unique: false});
-            var cardTypeStore = db.createObjectStore('cardTypes', {keyPath: 'id'});
-            var resourceTypeStore = db.createObjectStore('resourceTypes', {keyPath: 'id'});
+//            var cardTypeStore = db.createObjectStore('cardTypes', {keyPath: 'id'});
+//            var resourceTypeStore = db.createObjectStore('resourceTypes', {keyPath: 'id'});
 
       });
   });
