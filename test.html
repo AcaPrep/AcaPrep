@@ -25,16 +25,16 @@
         <ol data-ng-if="grading">
             <li value="{{currentProblem.number}}">
                 <div class="question" data-ng-bind-html="currentProblem.question"></div>
-                <button class="orange ui button right" data-ng-click="next()">Next
-                    <i class="icon right"></i>
-                </button>
                 <div class="answers ui list">
                     <div class="item" data-ng-repeat="answer in currentProblem.answers">
                         <div class="ui button" data-ng-click="next()" data-ng-class="statusClass($index,currentProblem.correct,currentProblem.answered)">{{['A','B','C','D','E'][$index]}}</div>
                         <div class="content" data-ng-bind-html="answer.text"></div>
                     </div>
-                    <div class="guide" data-ng-bind-html="currentProblem.guide"></div>
                 </div>
+                <button class="orange ui button right" data-ng-click="next()">Next
+                    <i class="icon right"></i>
+                </button>
+                <div class="guide" data-ng-bind-html="currentProblem.guide"></div>
             </li>
         </ol>
     </div>
