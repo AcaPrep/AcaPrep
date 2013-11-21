@@ -29,12 +29,9 @@ body > .segment {
     -webkit-border-radius:0;
     border-radius:0;
 }
-.test.close {
-    position:fixed;
-    top:24px;
-    right:24px;
-    background:transparent;
-    border:0;
+.button.next {
+    margin-bottom:1em;
+    margin-left: 1em;
 }
 
 .right.button {

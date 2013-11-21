@@ -17,11 +17,11 @@ angular.module('AcaPrep', ['ngRoute', 'xc.indexedDB'])
       .when('/', {controller:ListCtrl, templateUrl:'/list.html'})
 //      .when('/import', {controller:AddCtrl, templateUrl:'import.html'})
       .when('/test/:test', {controller:TestCtrl, templateUrl:'/test.html'})
-      .otherwise({controller:ListCtrl, templateUrl:'/list.html'});
+      .otherwise({redirectTo:'/'})
     $locationProvider.html5Mode(true);
     $indexedDBProvider
       .connection('DemiQuiz')
-        .upgradeDatabase(0, function(event, db, tx){
+        .upgradeDatabase(1, function(event, db, tx){
             var subjectStore = db.createObjectStore('subjects', {keyPath: 'id'});
             var testStore = db.createObjectStore('tests',{keyPath:'id'});
             testStore.createIndex('set_idx', 'set', {unique: false});

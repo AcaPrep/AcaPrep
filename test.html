@@ -4,11 +4,8 @@
     id="bar">
         <div class="ui bar" style="width:0%"></div>
     </div>
-    <button class="test close" data-ng-click="close()">
-        <i class="close icon"></i>
-    </button>
     <p>
-        <span data-ng-if="!!completed">You got {{correct}} correct out of {{completed}} answered, or {{correct/completed*100|number:2}}%</span>&nbsp;
+        <span data-ng-if="!!completed">You got {{correct}} correct out of {{completed}} answered, or {{correct/completed*100|number:2}}%. You have {{problems.length-completed}} to go.</span>&nbsp;
     </p>
     <div data-ng-if="!scoreing">
         <ol data-ng-if="!grading">
@@ -31,7 +28,7 @@
                         <div class="content" data-ng-bind-html="answer.text"></div>
                     </div>
                 </div>
-                <button class="orange ui button right" data-ng-click="next()">Next
+                <button class="ui right orange button next" data-ng-click="next()">Next
                     <i class="icon right"></i>
                 </button>
                 <div class="guide" data-ng-bind-html="currentProblem.guide"></div>
@@ -52,4 +49,7 @@
             </li>
         </ol>
     </div>
+    <button class="fluid purple ui button" data-ng-click="close()">
+      Close <i class="close icon"></i>
+    </button>
 </div>
